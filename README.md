@@ -1,3 +1,4 @@
+
 # 
 <h1 align="center">OpenWeather API Project</h1>
 A project to build a testing framework for an api.
@@ -18,3 +19,4 @@ Every member is a developer and a tester.
 - *Jack Ingham* - Development
 - **Kurtis Hanson** - Development
 - **Dominic Cogan-Tucker** - Development
+
