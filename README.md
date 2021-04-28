@@ -19,14 +19,14 @@ Every member is a developer and a tester.
 - **Dominic Cogan-Tucker** - Development
 
 ### Tools
-JDK 11
-Maven
-Mockito
-Hamer
-IntelliJ
-JUnit 5
-Jackson
-Git
+- JDK 11
+- Maven
+- Mockito
+- Hamer
+- IntelliJ
+- JUnit 5
+- Jackson
+- Git
 
 ### Project Architecture
 - **The program will Service Object Model to represent the various API requests.**
