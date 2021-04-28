@@ -7,4 +7,5 @@ public interface WindDTO extends DTOChecker {
 
     Double getDegree();
 
+    Double getGust();
 }

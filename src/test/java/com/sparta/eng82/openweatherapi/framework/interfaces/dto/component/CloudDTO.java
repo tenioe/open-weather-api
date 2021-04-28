@@ -4,12 +4,7 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.DTOChecker;
 
 public interface CloudDTO extends DTOChecker {
 
-    default Integer getAll() {
-        return null;
-    }
+    Integer getAll();
 
-    default boolean isGreaterThanZero(Integer all) {
-        return false;
-    }
-
+    boolean isBetween0and100();
 }

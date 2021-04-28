@@ -12,11 +12,9 @@ public interface WeatherDTO extends DTOChecker {
 
     String getWeatherIconId();
 
-    Boolean checkWeatherIdMatchesGroup(Integer id, String group);
+    Boolean checkWeatherIdMatchesGroup();
 
-    Boolean checkWeatherIdMatchesDescription(Integer id, String description);
+    Boolean checkWeatherIdMatchesDescription();
 
-    Boolean checkWeatherIdMatchesIcon(Integer id, String iconId);
-
-
+    Boolean checkWeatherIdMatchesIcon();
 }

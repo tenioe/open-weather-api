@@ -8,8 +8,8 @@ public interface DTOChecker {
     }
 
     default boolean isType(Object actual, Class<?> clazz) {
-     //TODO: Implementation
-     return true;
+        //TODO: Implementation
+        return true;
     }
 
     default boolean isEqual(Object expected, Object actual) {
