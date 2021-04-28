@@ -11,4 +11,7 @@ public interface MultipleCityDTO extends DTOChecker, StatusCodeResponse {
 
     Integer getCount();
     String getMessage();
+
+    boolean numberOfCitiesEqualsCount();
+    boolean listOfCityContainsNullValue();
 }
