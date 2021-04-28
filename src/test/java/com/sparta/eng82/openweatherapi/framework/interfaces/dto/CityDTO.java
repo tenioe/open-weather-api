@@ -9,6 +9,8 @@ public interface CityDTO extends DTOChecker, StatusCodeResponse {
     CloudDTO getCloudDTO();
     CoordinatesDTO getCoordinatesDTO();
     MainConditionsDTO getMainConditionsDTO();
+    PrecipatationDTO getRainDTO();
+    PrecipatationDTO getSnowDTO();
     SystemValuesDTO getSystemValuesDTO();
     WeatherDTO getWeatherDTO();
     WindDTO getWindDTO();
