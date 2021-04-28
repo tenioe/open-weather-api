@@ -29,7 +29,7 @@ Every member is a developer and a tester.
 - Git
 
 ### Project Architecture
-- **The program will Service Object Model to represent the various API requests.**
+- The program will **Service Object Model** to represent the various API requests.
 
 ### Rules
 - Do not touch the master branch.
