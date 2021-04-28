@@ -4,7 +4,7 @@ A project to build a testing framework for an api.
 
 ## About
 A group project focused on developing testing frameworks for open-source APIs(https://openweathermap.org/current) within an agile enviroment.  
-- **JThe program will Service Object Model to represent the various API requests.**
+- **The program will Service Object Model to represent the various API requests.**
 - **The framework will be made using JUnit and Jackson.**
 
 ### Our Team
