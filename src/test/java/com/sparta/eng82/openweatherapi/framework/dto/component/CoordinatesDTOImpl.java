@@ -6,28 +6,28 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.Coordi
 public class CoordinatesDTOImpl implements CoordinatesDTO {
 
     @JsonProperty("lon")
-    private Double Longitude;
+    private Double longitude;
     @JsonProperty("lat")
-    private Double Latitude;
+    private Double latitude;
 
     @Override
     public Double getLongitude() {
-        return Longitude;
+        return longitude;
     }
 
     @Override
     public Double getLatitude() {
-        return Latitude;
+        return latitude;
     }
 
     @Override
     public boolean isLongitudeBetweenNegative180and180() {
-        return Longitude >= -180 && Longitude <= 180;
+        return longitude >= -180 && longitude <= 180;
     }
 
     @Override
     public boolean isLatitudeBetweenNegative90and90() {
-        return Latitude >= -90 && Latitude <= 90;
+        return latitude >= -90 && latitude <= 90;
     }
 
 
