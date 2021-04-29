@@ -15,24 +15,23 @@ public class WindDTOTests {
     @BeforeAll
     static void init() {
         cityDTO = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "London"));
-
     }
 
     @Test
     @DisplayName("Is speed greater than zero")
-    void isSpeedGreaterThanZero(){
-        Assertions.assertTrue(cityDTO.getWindDTO().getSpeed());
+    void isSpeedGreaterThanZero() {
+        Assertions.assertTrue(cityDTO.getWindDTO().isSpeedGreaterThanZero());
     }
 
     @Test
     @DisplayName("Is gust greater than zero")
-    void isGustGreaterThanZero(){
-        Assertions.assertTrue(cityDTO.getWindDTO().getDegree());
+    void isGustGreaterThanZero() {
+        Assertions.assertTrue(cityDTO.getWindDTO().isGustGreaterThanZero());
     }
 
     @Test
-    @DisplayName("Is gust greater than zero")
-    void isDegreeBetween0And360(){
+    @DisplayName("Is degree between 0 and 360")
+    void isDegreeBetween0And360() {
         Assertions.assertTrue(cityDTO.getWindDTO().isDegreeBetween0And360());
     }
 }
