@@ -51,15 +51,15 @@ public class WeatherDTOImpl implements WeatherDTO {
 
     @Override
     public boolean checkWeatherIdMatchesDescription() {
-        return false;
+        return matchTwoValues("src/test/resources/weather_conditions.csv", weatherId.toString(), weatherDescription);
     }
 
     @Override
     public boolean checkWeatherIconMatchesDescription() {
-        return matchValueInCsvFiles("src/test/resources/weather_icons.csv", "src/test/resources/weather_conditions.csv", weatherIcon, weatherDescription);
+        return matchTwoValuesTwoCsv("src/test/resources/weather_icons.csv", "src/test/resources/weather_conditions.csv", weatherIcon, weatherDescription);
     }
 
-    private boolean matchValueInCsvFiles(String firstFilePath, String secondFilePath, String findFirst, String matchSecond) {
+    private boolean matchTwoValuesTwoCsv(String firstFilePath, String secondFilePath, String findFirst, String matchSecond) {
         for (List<String> firstRow : readCsvFileIntoArray(firstFilePath)) {
             for (String firstEntry : firstRow) {
                 if (firstEntry.equals(findFirst)) {
@@ -71,6 +71,19 @@ public class WeatherDTOImpl implements WeatherDTO {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean matchTwoValues(String filePath, String findValue, String matchValue) {
+        for (List<String> row : readCsvFileIntoArray(filePath)) {
+            for (String entry : row) {
+                if (entry.equals(findValue)) {
+                    if (row.get(2).equals(matchValue)) {
+                        return true;
                     }
                 }
             }
