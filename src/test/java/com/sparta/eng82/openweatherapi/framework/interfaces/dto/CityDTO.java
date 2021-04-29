@@ -4,6 +4,8 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.DTOChecker;
 import com.sparta.eng82.openweatherapi.framework.interfaces.StatusCodeResponse;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.*;
 
+import java.util.ArrayList;
+
 public interface CityDTO extends DTOChecker, StatusCodeResponse {
 
     CloudDTO getCloudDTO();
@@ -18,7 +20,7 @@ public interface CityDTO extends DTOChecker, StatusCodeResponse {
 
     SystemValuesDTO getSystemValuesDTO();
 
-    WeatherDTO getWeatherDTO();
+    ArrayList<WeatherDTO> getWeatherDTO();
 
     WindDTO getWindDTO();
 
