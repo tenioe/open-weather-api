@@ -20,6 +20,16 @@ Every member is a developer and a tester.
 - **Kurtis Hanson** - Development
 - **Dominic Cogan-Tucker** - Development
 
+### Tools
+
+- JDK 11
+- Maven
+- Hamercrest
+- IntelliJ
+- JUnit 5
+- Git
+- Github
+
 ### Rules :
 
 * Do not touch the master branch.
