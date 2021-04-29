@@ -7,6 +7,7 @@ public class CoordinatesDTOImpl implements CoordinatesDTO {
 
     @JsonProperty("lon")
     private Double longitude;
+
     @JsonProperty("lat")
     private Double latitude;
 

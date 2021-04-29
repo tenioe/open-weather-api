@@ -5,30 +5,31 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.Precip
 
 public class PrecipitationDTOImpl implements PrecipitationDTO {
     @JsonProperty("1h")
-    private Float oneHourMM;   //more readable name
+    private Float oneHourMillis;
+
     @JsonProperty("3h")
-    private Float twoHourMM;
+    private Float threeHourMillis;
 
 
     @JsonProperty("1h")
     @Override
-    public Float getOneHourMM() {
-        return oneHourMM;
+    public Float getOneHourMillis() {
+        return oneHourMillis;
     }
 
     @JsonProperty("3h")
     @Override
-    public Float getThreeHourMM() {
-        return null;
+    public Float getThreeHourMillis() {
+        return threeHourMillis;
     }
 
     @Override
     public boolean checkValuesArePositive() {
         boolean areValuesPositive = true;
-        if (oneHourMM < 0) {
+        if (oneHourMillis < 0) {
             areValuesPositive = false;
         }
-        if (twoHourMM < 0) {
+        if (threeHourMillis < 0) {
             areValuesPositive = false;
         }
         return areValuesPositive;

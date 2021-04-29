@@ -3,43 +3,44 @@ package com.sparta.eng82.openweatherapi.framework.dto.component;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.WindDTO;
 
-public class windDTOImpl implements WindDTO {
-    private Double speed;
-    private Double degree;
-    private Double gust;
+public class WindDTOImpl implements WindDTO {
 
     @JsonProperty("speed")
+    private Double speed;
+
+    @JsonProperty("deg")
+    private Double degree;
+
+    @JsonProperty("gust")
+    private Double gust;
+
     @Override
     public Double getSpeed() {
         return speed;
     }
 
-    @JsonProperty("deg")
     @Override
     public Double getDegree() {
         return degree;
     }
 
-    @JsonProperty("gust")
     @Override
     public Double getGust() {
         return gust;
     }
 
     @Override
-    public Boolean isSpeedBelowZero() {
-        return speed < 0;
+    public Boolean isSpeedGreaterThanZero() {
+        return speed >= 0;
     }
 
     @Override
-    public Boolean isGustBelowZero() {
-        return gust < 0;
+    public Boolean isGustGreaterThanZero() {
+        return gust >= 0;
     }
 
     @Override
-    public Boolean isDegreeBelowZeroOrAbove360() {
-        return degree < 0 || degree > 360;
+    public Boolean isDegreeBetween0And360() {
+        return degree >= 0 && degree <= 360;
     }
-
-
 }
