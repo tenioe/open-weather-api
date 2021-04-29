@@ -1,3 +1,5 @@
+package com.sparta.eng82.openweatherapi;
+
 import com.sparta.eng82.openweatherapi.framework.ConnectionManager;
 import com.sparta.eng82.openweatherapi.framework.EndPoint;
 import com.sparta.eng82.openweatherapi.framework.Injector;
