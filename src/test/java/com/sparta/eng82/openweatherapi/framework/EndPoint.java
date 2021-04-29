@@ -1,8 +1,8 @@
 package com.sparta.eng82.openweatherapi.framework;
 
 import com.sparta.eng82.openweatherapi.framework.dto.CityDTOImpl;
+import com.sparta.eng82.openweatherapi.framework.dto.MultipleCityDTOImpl;
 import com.sparta.eng82.openweatherapi.framework.interfaces.StatusCodeResponse;
-import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
 
 public enum EndPoint {
 
@@ -10,8 +10,8 @@ public enum EndPoint {
     BY_CITY_ID("weather?id={city id}", CityDTOImpl.class),
     BY_COORDS("weather?lat={lat}&lon={lon}", CityDTOImpl.class),
     BY_ZIP("weather?zip={zip code},{country code}", CityDTOImpl.class),
-    BY_BBOX("box/city?bbox={bbox}", MultipleCityDTO.class),
-    BY_CIRCLE("find?lat={lat}&lon={lon}&cnt={cnt}", MultipleCityDTO.class);
+    BY_BBOX("box/city?bbox={bbox}", MultipleCityDTOImpl.class),
+    BY_CIRCLE("find?lat={lat}&lon={lon}&cnt={cnt}", MultipleCityDTOImpl.class);
 
     private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
     private static final String API_KEY_ENDPOINT = "&appid={API key}";
