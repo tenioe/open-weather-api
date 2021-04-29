@@ -4,7 +4,7 @@ public enum EndPoint {
 
     BASE_URL("api.openweathermap.org/data/2.5/"),
     BY_CITY_NAME("weather?q={city name},{state code},{country code}"),
-    BY_CIT_ID("weather?id={city id}"),
+    BY_CITY_ID("weather?id={city id}"),
     BY_COORDS("weather?lat={lat}&lon={lon}"),
     BY_ZIP("weather?zip={zip code},{country code}"),
     BY_BBOX("box/city?bbox={bbox}"),
