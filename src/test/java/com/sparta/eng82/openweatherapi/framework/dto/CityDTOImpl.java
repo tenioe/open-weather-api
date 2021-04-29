@@ -86,12 +86,20 @@ public class CityDTOImpl implements CityDTO {
 
     @Override
     public PrecipitationDTO getRainDTO() {
-        return rainDTO;
+        if (rainDTO != null){
+            return rainDTO;
+        } else {
+            return new PrecipitationDTOImpl();
+        }
     }
 
     @Override
     public PrecipitationDTO getSnowDTO() {
-        return snowDTO;
+        if (snowDTO != null){
+            return snowDTO;
+        } else {
+            return new PrecipitationDTOImpl();
+        }
     }
 
     @Override
