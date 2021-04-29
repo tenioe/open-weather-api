@@ -86,12 +86,20 @@ public class CityDTOImpl implements CityDTO {
 
     @Override
     public PrecipitationDTO getRainDTO() {
-        return rainDTO;
+        if (rainDTO != null){
+            return rainDTO;
+        } else {
+            return new PrecipitationDTOImpl();
+        }
     }
 
     @Override
     public PrecipitationDTO getSnowDTO() {
-        return snowDTO;
+        if (snowDTO != null){
+            return snowDTO;
+        } else {
+            return new PrecipitationDTOImpl();
+        }
     }
 
     @Override
@@ -140,7 +148,57 @@ public class CityDTOImpl implements CityDTO {
     }
 
     @Override
-    public boolean areWeatherIdsNotNull(){
+    public boolean areWeatherIdsNotNull() {
         return weatherDTOs.stream().map(WeatherDTO::getWeatherId).noneMatch(Objects::isNull);
+    }
+
+    @Override
+    public boolean areWeatherGroupsNotNull() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherGroup).noneMatch(Objects::isNull);
+    }
+
+    @Override
+    public boolean areWeatherDescriptionsNotNull() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherDescription).noneMatch(Objects::isNull);
+    }
+
+    @Override
+    public boolean areWeatherIconIdsNotNull() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherIconId).noneMatch(Objects::isNull);
+    }
+
+    @Override
+    public boolean areWeatherIdsIntegers() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherId).allMatch(e -> e.getClass().equals(Integer.class));
+    }
+
+    @Override
+    public boolean areWeatherGroupsStrings() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherGroup).allMatch(e -> e.getClass().equals(String.class));
+    }
+
+    @Override
+    public boolean areWeatherDescriptionsStrings() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherDescription).allMatch(e -> e.getClass().equals(String.class));
+    }
+
+    @Override
+    public boolean areWeatherIconIdsStrings() {
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherIconId).allMatch(e -> e.getClass().equals(String.class));
+    }
+
+    @Override
+    public boolean doWeatherIdsMatchGroup() {
+        return weatherDTOs.stream().allMatch(WeatherDTO::checkWeatherIdMatchesGroup);
+    }
+
+    @Override
+    public boolean doWeatherIdsMatchDescription() {
+        return weatherDTOs.stream().allMatch(WeatherDTO::checkWeatherIdMatchesDescription);
+    }
+
+    @Override
+    public boolean doWeatherIconIdsMatchDescription() {
+        return weatherDTOs.stream().allMatch(WeatherDTO::checkWeatherIconIdMatchesDescription);
     }
 }

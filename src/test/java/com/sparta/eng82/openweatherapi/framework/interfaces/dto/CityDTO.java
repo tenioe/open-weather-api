@@ -37,4 +37,24 @@ public interface CityDTO extends DTOChecker, StatusCodeResponse {
     Integer getDeltaTime();
 
     boolean areWeatherIdsNotNull();
+
+    boolean areWeatherGroupsNotNull();
+
+    boolean areWeatherDescriptionsNotNull();
+
+    boolean areWeatherIconIdsNotNull();
+
+    boolean areWeatherIdsIntegers();
+
+    boolean areWeatherGroupsStrings();
+
+    boolean areWeatherDescriptionsStrings();
+
+    boolean areWeatherIconIdsStrings();
+
+    boolean doWeatherIdsMatchGroup();
+
+    boolean doWeatherIdsMatchDescription();
+
+    boolean doWeatherIconIdsMatchDescription();
 }

@@ -1,5 +1,6 @@
 package com.sparta.eng82.openweatherapi.framework.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
@@ -7,7 +8,8 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
 
 import java.util.ArrayList;
 
-public class MultiCityDTOImpl implements MultipleCityDTO {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class MultipleCityDTOImpl implements MultipleCityDTO {
 
     @JsonProperty("cod")
     private Integer statusCode;
@@ -17,9 +19,6 @@ public class MultiCityDTOImpl implements MultipleCityDTO {
 
     @JsonProperty("count")
     private Integer count;
-
-    @JsonProperty("message")
-    private String message;
 
     @JsonProperty("list")
     @JsonDeserialize(contentAs = CityDTOImpl.class)
@@ -38,11 +37,6 @@ public class MultiCityDTOImpl implements MultipleCityDTO {
     @Override
     public Integer getCount() {
         return isNull(cnt) ? count : cnt;
-    }
-
-    @Override
-    public String getMessage() {
-        return message;
     }
 
     @Override

@@ -26,10 +26,10 @@ public class PrecipitationDTOImpl implements PrecipitationDTO {
     @Override
     public boolean checkValuesArePositive() {
         boolean areValuesPositive = true;
-        if (oneHourMillis < 0) {
+        if (threeHourMillis !=null && oneHourMillis < 0) {
             areValuesPositive = false;
         }
-        if (threeHourMillis < 0) {
+        if (threeHourMillis != null && threeHourMillis < 0) {
             areValuesPositive = false;
         }
         return areValuesPositive;
