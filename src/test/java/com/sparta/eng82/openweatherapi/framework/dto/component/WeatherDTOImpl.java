@@ -36,7 +36,7 @@ public class WeatherDTOImpl implements WeatherDTO {
     }
 
     @Override
-    public int getWeatherId() {
+    public Integer getWeatherId() {
         return weatherId;
     }
 

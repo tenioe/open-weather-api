@@ -7,6 +7,7 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.*;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class CityDTOImpl implements CityDTO {
 
@@ -136,5 +137,10 @@ public class CityDTOImpl implements CityDTO {
     @Override
     public Integer getDeltaTime() {
         return deltaTime;
+    }
+
+    @Override
+    public boolean areWeatherIdsNotNull(){
+        return weatherDTOs.stream().map(WeatherDTO::getWeatherId).noneMatch(Objects::isNull);
     }
 }
