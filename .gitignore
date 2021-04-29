@@ -1,0 +1,44 @@
+# Created by https://www.gitignore.io/api/java,java-web
+# Edit at https://www.gitignore.io/?templates=java,java-web
+
+### Java ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ file
+*.ctxt
+#idea
+.idea
+.idea/
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+# mvnw
+mvnw
+#mmvn
+.mvn
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.iml
+*.cmd
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+### Java-Web ###
+## ignoring target file
+target/
+
+# End of https://www.gitignore.io/api/java,java-web
+
+# properties file
+
+**/application.properties
