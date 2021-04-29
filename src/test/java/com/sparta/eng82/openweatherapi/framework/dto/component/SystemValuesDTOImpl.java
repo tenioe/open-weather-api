@@ -40,7 +40,17 @@ public class SystemValuesDTOImpl implements SystemValuesDTO {
     }
 
     @Override
-    public boolean isSunriseBeforeSunset() {
-        return sunrise < sunset;
+    public boolean isSunriseBeforeOrEqualToSunset() {
+        return sunrise <= sunset;
+    }
+
+    @Override
+    public boolean isCountryLength2() {
+        return country.length() == 2;
+    }
+
+    @Override
+    public boolean isCountryUpperCase() {
+        return country.chars().allMatch(Character::isUpperCase);
     }
 }
