@@ -1,6 +1,7 @@
 package com.sparta.eng82.openweatherapi.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
 
@@ -21,6 +22,7 @@ public class MultiCityDTOImpl implements MultipleCityDTO {
     private String message;
 
     @JsonProperty("list")
+    @JsonDeserialize(contentAs = CityDTOImpl.class)
     private ArrayList<CityDTO> cities;
 
     @Override
