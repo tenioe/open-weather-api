@@ -25,13 +25,13 @@ public class PrecipitationDTOTests {
 
     }
 
-//    @Test
-//    @DisplayName("Test returned values are positive for a single city")
-//    void testReturnedValuesArePositive() {
-//        Assertions.assertTrue(cityDTO.getRainDTO().checkValuesArePositive());
-//        Assertions.assertTrue(cityDTO.getSnowDTO().checkValuesArePositive());
-//
-//    }
+    @Test
+    @DisplayName("Test returned values are positive for a single city")
+    void testReturnedValuesArePositive() {
+        Assertions.assertTrue(cityDTO.getRainDTO().checkValuesArePositive());
+        Assertions.assertTrue(cityDTO.getSnowDTO().checkValuesArePositive());
+
+    }
 
 
 }
