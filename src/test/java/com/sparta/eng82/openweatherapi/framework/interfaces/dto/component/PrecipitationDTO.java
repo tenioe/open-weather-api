@@ -9,4 +9,6 @@ public interface PrecipitationDTO extends DTOChecker {
     Float getThreeHourMillis();
 
     boolean checkValuesArePositive();
+
+    boolean checkThreeHGreaterThanOneH();
 }

@@ -40,4 +40,13 @@ public class PrecipitationDTOImpl implements PrecipitationDTO {
         }
         return areValuesPositive;
     }
+
+    @Override
+    public boolean checkThreeHGreaterThanOneH() {
+        if (threeHourMillis == null || oneHourMillis == null){
+            return true;
+        } else {
+            return threeHourMillis >= oneHourMillis;
+        }
+    }
 }

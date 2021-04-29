@@ -185,6 +185,15 @@ public class ExampleTests {
                 Assertions.assertTrue(currCity.getSnowDTO().checkValuesArePositive());
             }
         }
+
+        @Test
+        @DisplayName("Test 3 hour value is greater than 1 hour")
+        void test3HourValueIsGreaterThan1Hour() {
+            Assertions.assertTrue(cityDTONashville.getRainDTO().checkThreeHGreaterThanOneH());
+            Assertions.assertTrue(cityDTONashville.getSnowDTO().checkThreeHGreaterThanOneH());
+
+
+        }
     }
 
     @Nested
