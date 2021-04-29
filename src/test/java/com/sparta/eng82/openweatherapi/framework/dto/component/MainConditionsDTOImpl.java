@@ -21,6 +21,8 @@ public class MainConditionsDTOImpl implements MainConditionsDTO {
     @JsonProperty("grnd_level")
     private Integer groundLevelPressure;
 
+    public MainConditionsDTOImpl() {
+    }
 
     @Override
     public Double getActualTemperature() {
