@@ -1,6 +1,7 @@
 import com.sparta.eng82.openweatherapi.framework.ConnectionManager;
 import com.sparta.eng82.openweatherapi.framework.EndPoint;
 import com.sparta.eng82.openweatherapi.framework.Injector;
+import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -12,7 +13,7 @@ public class WindDTOTests {
 
     @BeforeAll
     static void init() {
-        cityDTO = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Memphis"));
+        cityDTO = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "London"));
 
     }
 
