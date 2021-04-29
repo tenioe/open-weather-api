@@ -46,12 +46,12 @@ public class WeatherDTOImpl implements WeatherDTO {
 
     @Override
     public boolean checkWeatherIdMatchesGroup() {
-        return false;
+        return matchTwoValues("src/test/resources/weather_conditions.csv", weatherId.toString(), weatherGroup, 1);
     }
 
     @Override
     public boolean checkWeatherIdMatchesDescription() {
-        return matchTwoValues("src/test/resources/weather_conditions.csv", weatherId.toString(), weatherDescription);
+        return matchTwoValues("src/test/resources/weather_conditions.csv", weatherId.toString(), weatherDescription, 2);
     }
 
     @Override
@@ -78,11 +78,11 @@ public class WeatherDTOImpl implements WeatherDTO {
         return false;
     }
 
-    private boolean matchTwoValues(String filePath, String findValue, String matchValue) {
+    private boolean matchTwoValues(String filePath, String findValue, String matchValue, int index) {
         for (List<String> row : readCsvFileIntoArray(filePath)) {
             for (String entry : row) {
                 if (entry.equals(findValue)) {
-                    if (row.get(2).equals(matchValue)) {
+                    if (row.get(index).equals(matchValue)) {
                         return true;
                     }
                 }
