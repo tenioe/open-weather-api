@@ -13,11 +13,9 @@ public class WeatherDTOTests {
 
     static CityDTO cityDTO;
 
-
     @BeforeAll
     static void init() {
         cityDTO = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Memphis"));
-
     }
 
     @Test
@@ -42,5 +40,47 @@ public class WeatherDTOTests {
     @DisplayName("Check all weather ids are not null")
     void checkAllWeatherIdsAreNotNull() {
         Assertions.assertTrue(cityDTO.areWeatherIdsNotNull());
+    }
+
+    @Test
+    @DisplayName("Check all weather groups are not null")
+    void checkAllWeatherGroupsAreNotNull() {
+        Assertions.assertTrue(cityDTO.areWeatherGroupsNotNull());
+    }
+
+    @Test
+    @DisplayName("Check all weather descriptions are not null")
+    void checkAllWeatherDescriptionsAreNotNull() {
+        Assertions.assertTrue(cityDTO.areWeatherGroupsNotNull());
+    }
+
+    @Test
+    @DisplayName("Check all weather icon ids are not null")
+    void checkAllWeatherIconIdsAreNotNull() {
+        Assertions.assertTrue(cityDTO.areWeatherIconIdsNotNull());
+    }
+
+    @Test
+    @DisplayName("Check all weather ids are integers")
+    void checkAllWeatherIdsAreIntegers() {
+        Assertions.assertTrue(cityDTO.areWeatherIdsIntegers());
+    }
+
+    @Test
+    @DisplayName("Check all weather groups are strings")
+    void checkAllWeatherGroupsAreStrings() {
+        Assertions.assertTrue(cityDTO.areWeatherGroupsStrings());
+    }
+
+    @Test
+    @DisplayName("Check all weather descriptions are strings")
+    void checkAllWeatherDescriptionsAreStrings() {
+        Assertions.assertTrue(cityDTO.areWeatherDescriptionsStrings());
+    }
+
+    @Test
+    @DisplayName("Check all weather icon ids are strings")
+    void checkAllWeatherIconIdsAreStrings() {
+        Assertions.assertTrue(cityDTO.areWeatherIconIdsStrings());
     }
 }
