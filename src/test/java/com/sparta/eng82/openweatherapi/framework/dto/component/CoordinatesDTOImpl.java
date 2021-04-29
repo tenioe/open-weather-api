@@ -10,6 +10,9 @@ public class CoordinatesDTOImpl implements CoordinatesDTO {
     @JsonProperty("lat")
     private Double latitude;
 
+    public CoordinatesDTOImpl() {
+    }
+
     @Override
     public Double getLongitude() {
         return longitude;
