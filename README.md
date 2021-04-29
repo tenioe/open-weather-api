@@ -78,5 +78,41 @@ before each story is considered a closed issue.
 
 ## Documentation
 
+### Different Types of Responses
+The Open Weather Map API has two distinct cases for responses to API calls. These are: a single city response, and 
+a multiple city response. 
+
+### Initiating the Connection
+- The ConnectionManager's **getConnection()** method provides the end-point, allowing the user to add 
+parameters based on what exactly needs to be tested.
+- The end-points which can be passed into getConnection() are:
+    - BY_CITY_NAME, (city_name, state_code, country_code)
+      - Needs a minimum of city_name, not all parameters are required
+    - BY_CITY_ID, (city_id)
+    - BY_COORDS, (longitude, latitude)
+    - BY_ZIP, (zip_code, country_code)
+    - BY_BBOX, (bounded_box)
+    - BY_CIRCLE, (longitute, latitude, cnt)
+    
+- **InjectDTO()** takes a fully constructed URL and uses ObjectMapper() of the Jackson library to reads JSON to POJOs.
+
+### Example Test
+```java
+static CityDTO cityDTO;
+
+@BeforeEach
+void setUp() {
+    cityDTO = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Memphis"));
+}
+
+@Test
+@DisplayName("Check the cloud coverage is between 0 and 100")
+void checkTheCloudCoverageIsBetween0And100() {
+    Assertions.assertTrue(cityDTO.getCloudDTO().isBetween0and100());
+    System.out.println(cityDTO.getCloudDTO().getCloudCoverage());
+}
+```
+    
+
 ### Dependencies
 
