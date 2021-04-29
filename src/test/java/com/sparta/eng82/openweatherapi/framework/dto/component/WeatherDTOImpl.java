@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.WeatherDTO;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,17 +55,34 @@ public class WeatherDTOImpl implements WeatherDTO {
     }
 
     @Override
-    public boolean checkWeatherIdMatchesIcon() {
-        // TODO check weather description matches icon
-        readCsvFileIntoArray("src/test/resources/weather_icons.csv");
+    public boolean checkWeatherIconMatchesDescription() {
+        return matchValueInCsvFiles("src/test/resources/weather_icons.csv", "src/test/resources/weather_conditions.csv", weatherIcon, weatherDescription);
+    }
+
+    private boolean matchValueInCsvFiles(String firstFilePath, String secondFilePath, String findFirst, String matchSecond) {
+        for (List<String> firstRow : readCsvFileIntoArray(firstFilePath)) {
+            for (String firstEntry : firstRow) {
+                if (firstEntry.equals(findFirst)) {
+                    for (List<String> secondRow : readCsvFileIntoArray(secondFilePath)) {
+                        for (String secondEntry : secondRow) {
+                            if (secondEntry.toLowerCase().equals(matchSecond)) {
+                                if (secondRow.get(3).equals(firstEntry)) {
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return false;
     }
 
-    private List<List<String>> readCsvFileIntoArray(String filePath){
+    private List<List<String>> readCsvFileIntoArray(String filePath) {
         List<List<String>> temp = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))){
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
-            while ((line = br.readLine()) != null){
+            while ((line = br.readLine()) != null) {
                 String[] entries = line.split(",");
                 temp.add(Arrays.asList(entries));
             }
