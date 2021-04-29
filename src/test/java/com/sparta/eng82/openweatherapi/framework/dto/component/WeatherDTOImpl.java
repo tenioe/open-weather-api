@@ -66,7 +66,7 @@ public class WeatherDTOImpl implements WeatherDTO {
     }
 
     @Override
-    public boolean checkWeatherIconMatchesDescription() {
+    public boolean checkWeatherIconIdMatchesDescription() {
         return matchTwoValuesTwoCsv(weatherIcon, weatherDescription);
     }
 
