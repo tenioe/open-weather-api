@@ -4,9 +4,9 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.DTOChecker;
 
 public interface PrecipitationDTO extends DTOChecker {
 
-    Integer getOneHourMM();
+    Float getOneHourMM();
 
-    Integer getThreeHourMM();
+    Float getThreeHourMM();
 
-    Boolean checkValuesArePositive();
+    boolean checkValuesArePositive();
 }
