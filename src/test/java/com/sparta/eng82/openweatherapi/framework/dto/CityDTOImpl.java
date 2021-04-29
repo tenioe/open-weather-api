@@ -39,7 +39,7 @@ public class CityDTOImpl implements CityDTO {
     @JsonProperty("sys")
     private SystemValuesDTO systemValuesDTO;
 
-    @JsonProperty("timezoen")
+    @JsonProperty("timezone")
     private Integer timezone;
 
     @JsonProperty("id")

@@ -1,4 +1,4 @@
-package com.sparta.eng82.openweatherapi.framework.dto.component;
+package com.sparta.eng82.openweatherapi.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;

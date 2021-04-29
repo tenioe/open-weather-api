@@ -6,18 +6,25 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.MainCo
 public class MainConditionsDTOImpl implements MainConditionsDTO {
     @JsonProperty("temp")
     private Double actualTemperature;
+
     @JsonProperty("feels_like")
     private Double feelsTemperature;
+
     @JsonProperty("temp_min")
     private Double minTemperature;
+
     @JsonProperty("temp_max")
     private Double maxTemperature;
+
     @JsonProperty("pressure")
     private Integer pressure;
+
     @JsonProperty("humidity")
     private Integer humidity;
+
     @JsonProperty("sea_level")
     private Integer seaLevelPressure;
+
     @JsonProperty("grnd_level")
     private Integer groundLevelPressure;
 
