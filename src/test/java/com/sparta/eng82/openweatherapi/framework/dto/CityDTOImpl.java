@@ -1,42 +1,54 @@
 package com.sparta.eng82.openweatherapi.framework.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.sparta.eng82.openweatherapi.framework.dto.component.*;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.*;
+
+import java.util.ArrayList;
 
 public class CityDTOImpl implements CityDTO {
 
     @JsonProperty("coord")
+    @JsonDeserialize(as = CoordinatesDTOImpl.class)
     private CoordinatesDTO coordinatesDTO;
 
     @JsonProperty("weather")
-    private WeatherDTO weatherDTO;
+    @JsonDeserialize(contentAs = WeatherDTOImpl.class)
+    private ArrayList<WeatherDTO> weatherDTOs;
 
     @JsonProperty("base")
     private String base;
 
     @JsonProperty("main")
+    @JsonDeserialize(as = MainConditionsDTOImpl.class)
     private MainConditionsDTO mainConditionsDTO;
 
     @JsonProperty("visibility")
     private Integer visibility;
 
     @JsonProperty("wind")
+    @JsonDeserialize(as = WindDTOImpl.class)
     private WindDTO windDTO;
 
     @JsonProperty("clouds")
+    @JsonDeserialize(as = CloudDTOImpl.class)
     private CloudDTO cloudDTO;
 
     @JsonProperty("rain")
+    @JsonDeserialize(as = PrecipitationDTOImpl.class)
     private PrecipitationDTO rainDTO;
 
     @JsonProperty("snow")
+    @JsonDeserialize(as = PrecipitationDTOImpl.class)
     private PrecipitationDTO snowDTO;
 
     @JsonProperty("dt")
     private Integer deltaTime;
 
     @JsonProperty("sys")
+    @JsonDeserialize(as = SystemValuesDTOImpl.class)
     private SystemValuesDTO systemValuesDTO;
 
     @JsonProperty("timezone")
@@ -87,8 +99,8 @@ public class CityDTOImpl implements CityDTO {
     }
 
     @Override
-    public WeatherDTO getWeatherDTO() {
-        return weatherDTO;
+    public ArrayList<WeatherDTO> getWeatherDTO() {
+        return weatherDTOs;
     }
 
     @Override

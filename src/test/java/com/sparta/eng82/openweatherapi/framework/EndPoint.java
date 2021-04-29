@@ -1,22 +1,64 @@
 package com.sparta.eng82.openweatherapi.framework;
 
+import com.sparta.eng82.openweatherapi.framework.dto.CityDTOImpl;
+import com.sparta.eng82.openweatherapi.framework.interfaces.StatusCodeResponse;
+import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
+
 public enum EndPoint {
 
-    BASE_URL("api.openweathermap.org/data/2.5/"),
-    BY_CITY_NAME("weather?q={city name},{state code},{country code}"),
-    BY_CITY_ID("weather?id={city id}"),
-    BY_COORDS("weather?lat={lat}&lon={lon}"),
-    BY_ZIP("weather?zip={zip code},{country code}"),
-    BY_BBOX("box/city?bbox={bbox}"),
-    BY_CIRCLE("find?lat={lat}&lon={lon}&cnt={cnt}");
+    BY_CITY_NAME("weather?q={city name},{state code},{country code}", CityDTOImpl.class),
+    BY_CITY_ID("weather?id={city id}", CityDTOImpl.class),
+    BY_COORDS("weather?lat={lat}&lon={lon}", CityDTOImpl.class),
+    BY_ZIP("weather?zip={zip code},{country code}", CityDTOImpl.class),
+    BY_BBOX("box/city?bbox={bbox}", MultipleCityDTO.class),
+    BY_CIRCLE("find?lat={lat}&lon={lon}&cnt={cnt}", MultipleCityDTO.class);
 
-    private final String url;
+    private static final String BASE_URL = "https://api.openweathermap.org/data/2.5/";
+    private static final String API_KEY_ENDPOINT = "&appid={API key}";
 
-    EndPoint(String url) {
-        this.url = url;
+    private final String urlTemplate;
+    private final Class<? extends StatusCodeResponse> clazz;
+    private StringBuilder urlBuilder;
+
+    EndPoint(String url, Class<? extends StatusCodeResponse> clazz) {
+        this.urlTemplate = url;
+        this.clazz = clazz;
+        urlBuilder = new StringBuilder(BASE_URL);
     }
 
     public String getUrl() {
-        return url;
+        return urlBuilder.toString();
+    }
+
+    public Class<? extends StatusCodeResponse> getDTOClass() {
+        return clazz;
+    }
+
+    public void setParams(String... params) {
+        urlBuilder.append(urlTemplate);
+        int openBracket = urlBuilder.indexOf("{");
+        int closeBracket;
+        int paramCount = 0;
+        while (openBracket != -1) {
+            closeBracket = urlBuilder.indexOf("}");
+            if (paramCount < params.length) {
+                urlBuilder.replace(openBracket, closeBracket + 1, params[paramCount]);
+            } else {
+                urlBuilder.delete(openBracket - 1, closeBracket + 1);
+            }
+            paramCount++;
+            openBracket = urlBuilder.indexOf("{");
+        }
+    }
+
+    public void setAPIKey(String apiKey) {
+        urlBuilder.append(API_KEY_ENDPOINT);
+        int startIndex = urlBuilder.indexOf("{");
+        int endIndex = urlBuilder.indexOf("}");
+        urlBuilder.replace(startIndex, endIndex + 1, apiKey);
+    }
+
+    public EndPoint buildEndPoint() {
+        return this;
     }
 }
