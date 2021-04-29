@@ -38,7 +38,7 @@ public class CoordinatesDTOTests {
     }
 
     @Nested
-    @DisplayName("Check that values are valid for single city")
+    @DisplayName("Check that values are valid for multiple city")
     class checkThatValuesAreValidForMultipleCity {
         @Test
         @DisplayName("Check if Longitude is between -180 and 180")
