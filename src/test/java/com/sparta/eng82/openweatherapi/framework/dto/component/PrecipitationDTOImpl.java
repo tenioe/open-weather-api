@@ -10,6 +10,12 @@ public class PrecipitationDTOImpl implements PrecipitationDTO {
     @JsonProperty("3h")
     private Float threeHourMillis;
 
+    public PrecipitationDTOImpl (){}
+
+    public PrecipitationDTOImpl(float defaultVal){
+        this.oneHourMillis = defaultVal;
+        this.threeHourMillis = defaultVal;
+    }
 
     @JsonProperty("1h")
     @Override

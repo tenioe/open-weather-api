@@ -86,20 +86,12 @@ public class CityDTOImpl implements CityDTO {
 
     @Override
     public PrecipitationDTO getRainDTO() {
-        if (rainDTO != null){
-            return rainDTO;
-        } else {
-            return new PrecipitationDTOImpl();
-        }
+        return Objects.requireNonNullElseGet(rainDTO, () -> new PrecipitationDTOImpl(0f));
     }
 
     @Override
     public PrecipitationDTO getSnowDTO() {
-        if (snowDTO != null){
-            return snowDTO;
-        } else {
-            return new PrecipitationDTOImpl();
-        }
+        return Objects.requireNonNullElseGet(snowDTO, () -> new PrecipitationDTOImpl(0f));
     }
 
     @Override
