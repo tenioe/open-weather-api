@@ -4,7 +4,7 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.DTOChecker;
 
 public interface WeatherDTO extends DTOChecker {
 
-    int getWeatherId();
+    Integer getWeatherId();
 
     String getWeatherGroup();
 

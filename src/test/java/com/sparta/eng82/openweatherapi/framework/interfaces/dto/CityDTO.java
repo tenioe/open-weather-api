@@ -35,4 +35,6 @@ public interface CityDTO extends DTOChecker, StatusCodeResponse {
     String getCityName();
 
     Integer getDeltaTime();
+
+    boolean areWeatherIdsNotNull();
 }
