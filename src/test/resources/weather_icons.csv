@@ -1,9 +1,9 @@
- clear sky, 01d.png, 01n.png
- few clouds, 02d.png, 02n.png
- scattered clouds, 03d.png, 03n.png
- broken clouds, 04d.png, 04n.png
- shower rain,09d.png, 09n.png
- rain,10d.png, 10n.png
- thunderstorm,11d.png, 11n.png
- snow,13d.png, 13n.png
- mist,50d.png, 50n.png
+ clear sky,01d,01n
+ few clouds,02d,02n
+ scattered clouds,03d,03n
+ broken clouds,04d,04n
+ shower rain,09d,09n
+ rain,10d,10n
+ thunderstorm,11d,11n
+ snow,13d,13n
+ mist,50d,50n
