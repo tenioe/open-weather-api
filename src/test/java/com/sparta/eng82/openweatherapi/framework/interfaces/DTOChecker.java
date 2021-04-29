@@ -1,19 +1,18 @@
 package com.sparta.eng82.openweatherapi.framework.interfaces;
 
+import java.util.Objects;
+
 public interface DTOChecker {
 
     default boolean isNull(Object actual) {
-        //TODO: Implementation
-        return true;
+        return Objects.isNull(actual);
     }
 
     default boolean isType(Object actual, Class<?> clazz) {
-        //TODO: Implementation
-        return true;
+        return actual.getClass().equals(clazz);
     }
 
     default boolean isEqual(Object expected, Object actual) {
-        //TODO: Implementation
-        return true;
+        return actual.equals(expected);
     }
 }
