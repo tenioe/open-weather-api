@@ -8,18 +8,24 @@ public class CloudDTOImpl implements CloudDTO {
     @JsonProperty("all")
     private Integer all;
 
-    public CloudDTOImpl() {
-
-    }
+    @JsonProperty("today")
+    private Integer today;
 
     @Override
     @JsonProperty("all")
-    public Integer getAll() {
-        return all;
+    public Integer getCloudCoverage() {
+        if (all != null) {
+            return all;
+        } else if (today != null) {
+            return today;
+        } else {
+            return null;
+        }
     }
 
     @Override
     public boolean isBetween0and100() {
-        return (all >= 0 && all <= 100);
+        return (getCloudCoverage() >= 0 && getCloudCoverage() <= 100);
     }
+
 }

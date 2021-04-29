@@ -16,5 +16,5 @@ public interface WeatherDTO extends DTOChecker {
 
     boolean checkWeatherIdMatchesDescription();
 
-    boolean checkWeatherIconMatchesDescription();
+    boolean checkWeatherIconIdMatchesDescription();
 }

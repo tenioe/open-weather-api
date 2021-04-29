@@ -6,10 +6,12 @@ import com.sparta.eng82.openweatherapi.framework.Injector;
 import com.sparta.eng82.openweatherapi.framework.dto.CityDTOImpl;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
+
 import org.junit.jupiter.api.*;
 
 
 public class PrecipitationDTOTests {
+  
     static CityDTOImpl cityDTO;
     static MultipleCityDTO multipleCityDTO;
 
@@ -25,10 +27,8 @@ public class PrecipitationDTOTests {
     void checkGetters() {
         System.out.println("Rain 1H: "+cityDTO.getRainDTO().getOneHourMillis());
         System.out.println("Rain 3H: "+cityDTO.getRainDTO().getThreeHourMillis());
-
         System.out.println("Snow 1H: "+cityDTO.getSnowDTO().getOneHourMillis());
         System.out.println("Snow 3H: "+cityDTO.getSnowDTO().getThreeHourMillis());
-
     }
 
     @Test
@@ -57,9 +57,6 @@ public class PrecipitationDTOTests {
         for (CityDTO currCity:  multipleCityDTO.getCities()){
             Assertions.assertTrue(currCity.getRainDTO().checkValuesArePositive());
             Assertions.assertTrue(currCity.getSnowDTO().checkValuesArePositive());
-        }
-        
+        } 
     }
-
-
 }

@@ -78,5 +78,5 @@ before each story is considered a closed issue.
 
 ## Documentation
 
-### Dependancies
+### Dependencies
 

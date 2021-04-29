@@ -8,20 +8,26 @@ public class CoordinatesDTOImpl implements CoordinatesDTO {
     @JsonProperty("lon")
     private Double longitude;
 
+    @JsonProperty("Lon")
+    private Double longitudeBbox;
+
     @JsonProperty("lat")
     private Double latitude;
+
+    @JsonProperty("Lat")
+    private Double latitudeBbox;
 
     public CoordinatesDTOImpl() {
     }
 
     @Override
     public Double getLongitude() {
-        return longitude;
+        return longitude == null ? longitudeBbox : longitude;
     }
 
     @Override
     public Double getLatitude() {
-        return latitude;
+        return latitude == null ? latitudeBbox : latitude;
     }
 
     @Override
