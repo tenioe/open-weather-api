@@ -6,7 +6,6 @@ A project to build a testing framework for an api.
 ## About
 A group project focused on developing testing frameworks for open-source APIs within an agile enviroment.  
 - **The API we will be using: https://openweathermap.org/current**
-- **The program will use Service Object Model to represent the various API requests.**
 - **The framework will be made using JUnit and Jackson.**
 
 ### Our Team
@@ -45,6 +44,19 @@ Every member is a developer and a tester.
 * Document the project throughout form the start to ensure integrity.
 * Program individually and review git pull requests by one other member.
 
+### Our Definition of Done :heavy_check_mark:
+
+1. Sprints are documented.
+2. Each feature has a test case. 
+3. Framework has been reviewed by stakeholders.
+4. Kanban accurately represnets our project state.
+5. Test caes exit for each feature.
+
+### Project Architecture
+- **The program will use Service Object Model to represent the various API requests.**
+1. DTO: Classes whcih represent the various requests to be made.
+2. ConnectionManager: A class which handles the connection to the live system and collecting the response. 
+3. Injector: A class responsible for injecting the payload into weather DTOs
 
 ### Sprint 0 
 #### The Product Backlog
