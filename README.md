@@ -26,10 +26,10 @@ Every member is a developer and a tester.
 * Branches : 
     *  The dev branch acted as our final increment stage version of the product.
     *  Feature branches were features worked on whcih were to be merged into the dev branch.
-        * Naming convention: 
+        * Naming convention: ticket#/module-worked-on
           * t10/weatherdto
           * t10/weatherdto-impl
-          * ticket#/module-worked-on
+          * bugfix/connection-manager-and-injector
 * Follow SOLID principles.
 * Strictly adhere to OOP for scalability, maintainability, testability, and general robustness.
 * Document the project throughout form the start to ensure integrity.
