@@ -18,7 +18,7 @@ public enum EndPoint {
 
     private final String urlTemplate;
     private final Class<? extends StatusCodeResponse> clazz;
-    private StringBuilder urlBuilder;
+    private final StringBuilder urlBuilder;
 
     EndPoint(String url, Class<? extends StatusCodeResponse> clazz) {
         this.urlTemplate = url;
@@ -34,7 +34,7 @@ public enum EndPoint {
         return clazz;
     }
 
-    public void setParams(String... params) {
+    private void setParams(String... params) {
         urlBuilder.append(urlTemplate);
         int openBracket = urlBuilder.indexOf("{");
         int closeBracket;
@@ -51,14 +51,16 @@ public enum EndPoint {
         }
     }
 
-    public void setAPIKey(String apiKey) {
+    private void setAPIKey(String apiKey) {
         urlBuilder.append(API_KEY_ENDPOINT);
         int startIndex = urlBuilder.indexOf("{");
         int endIndex = urlBuilder.indexOf("}");
         urlBuilder.replace(startIndex, endIndex + 1, apiKey);
     }
 
-    public EndPoint buildEndPoint() {
+    public EndPoint buildEndPoint(String apiKey, String... params) {
+        setParams(params);
+        setAPIKey(apiKey);
         return this;
     }
 }

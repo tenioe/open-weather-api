@@ -21,8 +21,6 @@ public class ConnectionManager {
     }
 
     public static EndPoint getConnection(EndPoint endPoint, String... params) {
-        endPoint.setParams(params);
-        endPoint.setAPIKey(apiKey);
-        return endPoint.buildEndPoint();
+        return endPoint.buildEndPoint(apiKey, params);
     }
 }
