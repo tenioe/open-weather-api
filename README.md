@@ -20,3 +20,17 @@ Every member is a developer and a tester.
 - **Kurtis Hanson** - Development
 - **Dominic Cogan-Tucker** - Development
 
+### Rules :
+
+* Do not touch the master branch.
+* Branches : 
+    *  The dev branch acted as our final increment stage version of the product.
+    *  Feature branches were features worked on whcih were to be merged into the dev branch.
+        * Naming convention: 
+          * t10/weatherdto
+          * t10/weatherdto-impl
+          * ticket#/module-worked-on
+* Follow SOLID principles.
+* Strictly adhere to OOP for scalability, maintainability, testability, and general robustness.
+* Document the project throughout form the start to ensure integrity.
+* Program individually and review git pull requests by one other member.
