@@ -34,3 +34,18 @@ Every member is a developer and a tester.
 * Strictly adhere to OOP for scalability, maintainability, testability, and general robustness.
 * Document the project throughout form the start to ensure integrity.
 * Program individually and review git pull requests by one other member.
+
+
+### Sprint 0 
+#### The Product Backlog
+As a team, we had inspected the Open Weather Map API and assessed what possible things a tester would want to test.
+
+Building on this, User Epics were constructed which were then broken down further into user stories to populate the product backlog. 
+
+Each User Story had its own user acceptance criteria and list of developer requirements to ensure that a certain standard is met 
+before each story is considered a closed issue. 
+
+#### Building the Project - First Stages
+- Created an Interface for each section of the API response (e.g., 'weather', 'wind', 'cloud')
+- Created Interfaces for the two distinctly different response cases (single city, list of multiple cities)
+- Created an interface for default methods which are common across all DTOs.
