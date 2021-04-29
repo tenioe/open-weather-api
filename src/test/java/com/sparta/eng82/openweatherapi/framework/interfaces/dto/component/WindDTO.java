@@ -9,8 +9,6 @@ public interface WindDTO extends DTOChecker {
 
     Boolean isSpeedBelowZero();
     Boolean isGustBelowZero();
-    Boolean isDegreeBelowZero();
+    Boolean isDegreeBelowZeroOrAbove360();
 
-
-    Double getGust();
 }
