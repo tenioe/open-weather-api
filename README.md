@@ -3,6 +3,8 @@
 <h1 align="center">OpenWeather API Project</h1>
 A project to build a testing framework for an api.
 
+## Table Of Contents
+
 ## About
 A group project focused on developing testing frameworks for open-source APIs within an agile enviroment.  
 - **The API we will be using: https://openweathermap.org/current**
@@ -50,7 +52,7 @@ Every member is a developer and a tester.
 2. Each feature has a test case. 
 3. Framework has been reviewed by stakeholders.
 4. Kanban accurately represnets our project state.
-5. Test caes exit for each feature.
+5. Test cases exit for each feature.
 
 ### Project Architecture
 - **The program will use Service Object Model to represent the various API requests.**
@@ -67,7 +69,12 @@ Building on this, User Epics were constructed which were then broken down furthe
 Each User Story had its own user acceptance criteria and list of developer requirements to ensure that a certain standard is met 
 before each story is considered a closed issue. 
 
-#### Building the Project - First Stages
+### Building the Project - First Stages
 - Created an Interface for each section of the API response (e.g., 'weather', 'wind', 'cloud')
 - Created Interfaces for the two distinctly different response cases (single city, list of multiple cities)
 - Created an interface for default methods which are common across all DTOs.
+
+
+#### Documentation
+
+
