@@ -7,30 +7,33 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.System
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SystemValuesDTOImpl implements SystemValuesDTO {
 
+    @JsonProperty("id")
     private int id;
+
+    @JsonProperty("country")
     private String country;
+
+    @JsonProperty("sunrise")
     private int sunrise;
+
+    @JsonProperty("sunset")
     private int sunset;
 
-    @JsonProperty("id")
     @Override
     public Integer getID() {
         return id;
     }
 
-    @JsonProperty("country")
     @Override
     public String getCountry() {
         return country;
     }
 
-    @JsonProperty("sunrise")
     @Override
     public Integer getSunrise() {
         return sunrise;
     }
 
-    @JsonProperty("sunset")
     @Override
     public Integer getSunset() {
         return sunset;
