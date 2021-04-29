@@ -4,7 +4,7 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.DTOChecker;
 
 public interface WeatherDTO extends DTOChecker {
 
-    Integer getWeatherId();
+    int getWeatherId();
 
     String getWeatherGroup();
 
@@ -12,9 +12,9 @@ public interface WeatherDTO extends DTOChecker {
 
     String getWeatherIconId();
 
-    Boolean checkWeatherIdMatchesGroup();
+    boolean checkWeatherIdMatchesGroup();
 
-    Boolean checkWeatherIdMatchesDescription();
+    boolean checkWeatherIdMatchesDescription();
 
-    Boolean checkWeatherIdMatchesIcon();
+    boolean checkWeatherIdMatchesIcon();
 }
