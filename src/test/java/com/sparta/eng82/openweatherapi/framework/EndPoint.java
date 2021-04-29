@@ -27,7 +27,10 @@ public enum EndPoint {
     }
 
     public String getUrl() {
-        return urlBuilder.toString();
+        String temp = urlBuilder.toString();
+        urlBuilder.setLength(0);
+        urlBuilder.append(BASE_URL);
+        return temp;
     }
 
     public Class<? extends StatusCodeResponse> getDTOClass() {

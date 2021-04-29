@@ -36,8 +36,8 @@ public class WindDTOImpl implements WindDTO {
 
     @Override
     public Boolean isGustGreaterThanZero() {
-        if (gust ==null ) {
-            return false;
+        if (gust == null) {
+            return true;
         }
         return gust >= 0;
     }
