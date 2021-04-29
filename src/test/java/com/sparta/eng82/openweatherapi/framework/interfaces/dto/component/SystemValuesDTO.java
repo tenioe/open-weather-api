@@ -11,5 +11,9 @@ public interface SystemValuesDTO extends DTOChecker {
 
     Integer getSunset();
 
-    boolean isSunriseBeforeSunset();
+    boolean isSunriseBeforeOrEqualToSunset();
+
+    boolean isCountryLength2();
+
+    boolean isCountryUpperCase();
 }
