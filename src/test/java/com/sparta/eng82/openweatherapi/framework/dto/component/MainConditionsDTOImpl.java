@@ -73,7 +73,7 @@ public class MainConditionsDTOImpl implements MainConditionsDTO {
 
     @Override
     public boolean maxTempGreaterThanMinTemp() {
-        return maxTemperature > minTemperature;
+        return maxTemperature >= minTemperature;
     }
 
     @Override
