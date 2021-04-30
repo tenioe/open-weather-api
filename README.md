@@ -62,7 +62,7 @@ Every member is a developer and a tester.
 2. Each feature has a test case.
 3. Framework has been reviewed by stakeholders.
 4. Scrum board accurately represents our project state.
-5. Test cases exit for each feature.
+5. Test cases exists for each feature.
 
 ### Sprint 0 
 #### The Product Backlog
