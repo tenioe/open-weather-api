@@ -271,13 +271,13 @@ public class ExampleTests {
         @Test
         @DisplayName("Check all weather icon ids match descriptions")
         void checkAllWeatherIconIdsMatchDescriptions() {
-            Assertions.assertTrue(cityDTOMemphis.doWeatherIconIdsMatchDescription());
+            Assertions.assertTrue(cityDTOMemphis.doWeatherIconIdsMatchDescriptionForEnglish());
         }
 
         @Test
         @DisplayName("Check all weather ids match descriptions")
         void checkAllWeatherIdsMatchDescriptions() {
-            Assertions.assertTrue(cityDTOMemphis.doWeatherIdsMatchDescription());
+            Assertions.assertTrue(cityDTOMemphis.doWeatherIdsMatchDescriptionForEnglish());
         }
 
         @Test
