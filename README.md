@@ -26,8 +26,6 @@ Every member is a developer and a tester.
 
 - JDK 11
 - Maven
-- Mockito
-- Hamercrest
 - IntelliJ
 - JUnit 5
 - Jackson
