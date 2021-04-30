@@ -27,7 +27,7 @@ Every member is a developer and a tester.
 - JDK 11
 - Maven
 - Mockito
-- Hamer
+- Hamercrest
 - IntelliJ
 - JUnit 5
 - Jackson
@@ -35,15 +35,9 @@ Every member is a developer and a tester.
 
 ### Project Architecture
 - The program will **Service Object Model** to represent the various API requests.
-
-
-- JDK 11
-- Maven
-- Hamercrest
-- IntelliJ
-- JUnit 5
-- Git
-- Github
+   1. DTO: Classes that represent the different requests.
+   2. ConnectionManager: A class which handles the connection to the live system and collecting the response. 
+   3. Injector: A class responsible for injecting the payload into weather DTOs
 
 
 ### Rules :
@@ -66,20 +60,10 @@ Every member is a developer and a tester.
 ### Our Definition of Done :heavy_check_mark:
 
 1. Sprints are documented.
-
 2. Each feature has a test case.
-
-2. Each feature has a test case. 
-
 3. Framework has been reviewed by stakeholders.
 4. Kanban accurately represnets our project state.
 5. Test cases exit for each feature.
-
-### Project Architecture
-- **The program will use Service Object Model to represent the various API requests.**
-1. DTO: Classes whcih represent the various requests to be made.
-2. ConnectionManager: A class which handles the connection to the live system and collecting the response.
-3. Injector: A class responsible for injecting the payload into weather DTOs
 
 ### Sprint 0
 #### The Product Backlog
@@ -89,9 +73,6 @@ Building on this, User Epics were constructed which were then broken down furthe
 
 Each User Story had its own user acceptance criteria and list of developer requirements to ensure that a certain standard is met
 before each story is considered a closed issue.
-
-1. ConnectionManager: A class which handles the connection to the live system and collecting the response. 
-2. Injector: A class responsible for injecting the payload into weather DTOs
 
 
 ### Building the Project - First Stages
