@@ -35,9 +35,9 @@ Every member is a developer and a tester.
 
 ### Project Architecture
 - The program will **Service Object Model** to represent the various API requests.
-   1. DTO: Classes that represent the different requests.
-   2. ConnectionManager: A class which handles the connection to the live system and collecting the response. 
-   3. Injector: A class responsible for injecting the payload into weather DTOs
+   - DTO: Classes that represent the different requests.
+   - ConnectionManager: A class which handles the connection to the live system and collecting the response. 
+   - Injector: A class responsible for injecting the payload into weather DTOs
 
 
 ### Rules :
