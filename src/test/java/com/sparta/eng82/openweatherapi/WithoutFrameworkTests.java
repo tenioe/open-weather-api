@@ -1,29 +1,52 @@
 package com.sparta.eng82.openweatherapi;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta.eng82.openweatherapi.framework.ConnectionManager;
 import com.sparta.eng82.openweatherapi.framework.EndPoint;
 import com.sparta.eng82.openweatherapi.framework.Injector;
+import com.sparta.eng82.openweatherapi.framework.dto.CityDTOImpl;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.SystemValuesDTO;
 import org.junit.jupiter.api.*;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 
 public class WithoutFrameworkTests {
 
     static CityDTO cityDTOMemphis;
     static SystemValuesDTO systemValuesDTO;
-
+    static String apiKey;
 
     @BeforeAll
     static void init() {
-        cityDTOMemphis = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Memphis"));
-        systemValuesDTO = ((CityDTO) Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "london"))).getSystemValuesDTO();
+        // Without framework - 13 lines of code
+        try (InputStream input = new FileInputStream("src/test/resources/application.properties")) {
+            Properties prop = new Properties();
+            prop.load(input);
+            apiKey = prop.getProperty("api.key");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            cityDTOMemphis = objectMapper.readValue(
+                    new URL("https://api.openweathermap.org/data/2.5/weather?q=Memphis&appid=" + apiKey),
+                    CityDTOImpl.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        // With framework - 1/2 lines of code
+        systemValuesDTO = ((CityDTO) Injector.injectDTO(
+                ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "london"))).getSystemValuesDTO();
     }
 
 

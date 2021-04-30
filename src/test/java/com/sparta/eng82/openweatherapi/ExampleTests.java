@@ -7,8 +7,7 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.System
 import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.anyOf;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 public class ExampleTests {
 
@@ -41,7 +40,8 @@ public class ExampleTests {
         @Test
         @DisplayName("CheckHeaderAccessControlAllowMethods")
         void checkHeaderAccessControlAllowMethods() {
-            assertThat(ConnectionManager.getStatusCode().allValues("Access-Control-Allow-Methods").toString(), anyOf(is("[GET, POST]"), is("[POST, GET]")));
+            assertThat(ConnectionManager.getHeaders().allValues("Access-Control-Allow-Methods").toString(),
+                    allOf(containsString("GET"), containsString("POST")));
         }
     }
 
