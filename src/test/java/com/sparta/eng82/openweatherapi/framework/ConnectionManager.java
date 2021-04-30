@@ -42,17 +42,17 @@ public class ConnectionManager {
     }
 
 
-    public static HttpHeaders getStatusCode() {
+    public static HttpHeaders getHeaders() {
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(URI.create(BASEURL + apiKey)).build();
-        HttpHeaders statusCode = null;
+        HttpHeaders httpHeaders = null;
         try {
             HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-            statusCode = httpResponse.headers();
+            httpHeaders = httpResponse.headers();
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
-        return statusCode;
+        return httpHeaders;
     }
 }
