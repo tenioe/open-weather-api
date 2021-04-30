@@ -14,4 +14,20 @@ public interface MultipleCityDTO extends DTOChecker, StatusCodeResponse {
     boolean numberOfCitiesEqualsCount();
 
     boolean listOfCityContainsNullValue();
+
+    boolean checkSnowIsPositiveOrNullForEveryCity();
+
+    boolean checkRainIsPositiveOrNullForEveryCity();
+
+    boolean checkCloudCoverageIsBetween0and100ForEveryCity();
+
+    boolean checkLongitudeIsBetweenNegative180and180ForEveryCity();
+
+    boolean checkLatitudeIsBetweenNegative90and90ForEveryCity();
+
+    boolean checkMaxTempIsGreaterThanMinTempForEveryCity();
+
+    boolean checkHumidityIsBetween0and100ForEveryCity();
+
+    boolean checkTemperaturesAreGreaterThan0KForEveryCity();
 }

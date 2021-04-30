@@ -61,12 +61,12 @@ public class WeatherDTOImpl implements WeatherDTO {
     }
 
     @Override
-    public boolean checkWeatherIdMatchesDescription() {
+    public boolean checkWeatherIdMatchesDescriptionForEnglish() {
         return matchTwoValues(weatherId.toString(), weatherDescription, 2);
     }
 
     @Override
-    public boolean checkWeatherIconIdMatchesDescription() {
+    public boolean checkWeatherIconIdMatchesDescriptionForEnglish() {
         return matchTwoValuesTwoCsv(weatherIcon, weatherDescription);
     }
 
