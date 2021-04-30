@@ -157,7 +157,7 @@ Example of api-key in **application.properties**:
 
 ### Dependencies
 
-```
+```xml
 <dependencies>
    <dependency>
       <groupId>org.junit.jupiter</groupId>
