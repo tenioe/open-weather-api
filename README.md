@@ -6,7 +6,7 @@ A project to build a testing framework for an api.
 ## Table Of Contents
 
 ### About
-A group project focused on developing testing frameworks for open-source APIs within an agile enviroment.  
+A group project focused on developing testing frameworks for open-source APIs within an agile environment.  
 - **The API we will be using: https://openweathermap.org/current**
 - **The framework will be made using JUnit and Jackson.**
 - **Agile Framework: Scrum**
@@ -61,7 +61,7 @@ Every member is a developer and a tester.
 1. Sprints are documented.
 2. Each feature has a test case.
 3. Framework has been reviewed by stakeholders.
-4. Kanban accurately represnets our project state.
+4. Scrum board accurately represents our project state.
 5. Test cases exit for each feature.
 
 ### Sprint 0 
@@ -111,7 +111,7 @@ The Open Weather Map API has two distinct cases for responses to API calls:
     - **BY_COORDS**, (longitude, latitude)
     - **BY_ZIP**, (zip_code, country_code)
     - **BY_BBOX**, (bounded_box)
-    - **BY_CIRCLE**, (longitute, latitude, cnt)
+    - **BY_CIRCLE**, (longitude, latitude, cnt)
 
 | **API Endpoint** | **Type of Response** |         
 |--------------|----------------------|
