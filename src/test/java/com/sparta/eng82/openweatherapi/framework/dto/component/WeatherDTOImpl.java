@@ -77,7 +77,7 @@ public class WeatherDTOImpl implements WeatherDTO {
                     for (List<String> secondRow : weatherConditions) {
                         for (String secondEntry : secondRow) {
                             if (secondEntry.toLowerCase().equals(matchSecond)) {
-                                if (secondRow.get(3).equals(firstEntry)) {
+                                if (secondRow.get(3).equals(firstEntry) || secondRow.get(4).equals(firstEntry)) {
                                     return true;
                                 }
                             }
