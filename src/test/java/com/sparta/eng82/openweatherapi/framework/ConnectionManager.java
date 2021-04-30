@@ -26,7 +26,19 @@ public class ConnectionManager {
     }
 
     public static EndPoint getConnection(EndPoint endPoint, String... params) {
-        return endPoint.buildEndPoint(apiKey, params);
+        return endPoint.buildEndPoint(apiKey, Unit.STANDARD, Language.ENGLISH, params);
+    }
+
+    public static EndPoint getConnection(EndPoint endPoint, Unit unit, Language language, String... params) {
+        return endPoint.buildEndPoint(apiKey, unit, language, params);
+    }
+
+    public static EndPoint getConnection(EndPoint endPoint, Unit unit, String... params) {
+        return endPoint.buildEndPoint(apiKey, unit, Language.ENGLISH, params);
+    }
+
+    public static EndPoint getConnection(EndPoint endPoint, Language language, String... params) {
+        return endPoint.buildEndPoint(apiKey, Unit.STANDARD, language, params);
     }
 
 

@@ -61,9 +61,19 @@ public enum EndPoint {
         urlBuilder.replace(startIndex, endIndex + 1, apiKey);
     }
 
-    public EndPoint buildEndPoint(String apiKey, String... params) {
+    private void setLang(Language language) {
+        urlBuilder.append("&lang=").append(language.code);
+    }
+
+    private void setUnit(Unit unit) {
+        urlBuilder.append("&unit=").append(unit.name());
+    }
+
+    public EndPoint buildEndPoint(String apiKey, Unit unit, Language language, String... params) {
         setParams(params);
         setAPIKey(apiKey);
+        setUnit(unit);
+        setLang(language);
         return this;
     }
 }
