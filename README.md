@@ -122,3 +122,24 @@ void checkTheCloudCoverageIsBetween0And100() {
 
 ### Dependencies
 
+```
+<dependencies>
+   <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.7.1</version>
+      <scope>test</scope>
+   </dependency>
+   <dependency>
+     <groupId>org.hamcrest</groupId>
+     <artifactId>hamcrest-all</artifactId>
+     <version>1.3</version>
+     <scope>test</scope>
+   </dependency>
+   <dependency>
+     <groupId>com.fasterxml.jackson.core</groupId>
+     <artifactId>jackson-databind</artifactId>
+     <version>2.12.3</version>
+   </dependency>
+</dependencies>
+```
