@@ -185,12 +185,12 @@ public class CityDTOImpl implements CityDTO {
     }
 
     @Override
-    public boolean doWeatherIdsMatchDescription() {
+    public boolean doWeatherIdsMatchDescriptionForEnglish() {
         return weatherDTOs.stream().allMatch(WeatherDTO::checkWeatherIdMatchesDescriptionForEnglish);
     }
 
     @Override
-    public boolean doWeatherIconIdsMatchDescription() {
+    public boolean doWeatherIconIdsMatchDescriptionForEnglish() {
         return weatherDTOs.stream().allMatch(WeatherDTO::checkWeatherIconIdMatchesDescriptionForEnglish);
     }
 }

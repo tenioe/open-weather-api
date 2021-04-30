@@ -54,7 +54,7 @@ public interface CityDTO extends DTOChecker, StatusCodeResponse {
 
     boolean doWeatherIdsMatchGroup();
 
-    boolean doWeatherIdsMatchDescription();
+    boolean doWeatherIdsMatchDescriptionForEnglish();
 
-    boolean doWeatherIconIdsMatchDescription();
+    boolean doWeatherIconIdsMatchDescriptionForEnglish();
 }

@@ -79,7 +79,7 @@ public class WithoutFrameworkTests {
         @DisplayName("checkWeatherIconIdMatchesDescriptionForEnglishWithFramework")
         void checkWeatherIconIdMatchesDescriptionForEnglishWithFramework() {
             // No need to get one station at a time eg. get(0), the framework handles all stations automatically
-            Assertions.assertTrue(cityDTOMemphis.doWeatherIconIdsMatchDescription());
+            Assertions.assertTrue(cityDTOMemphis.doWeatherIconIdsMatchDescriptionForEnglish());
         }
     }
 
