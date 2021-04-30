@@ -8,8 +8,8 @@ A project to build a testing framework for an api.
 ### About
 A group project focused on developing testing frameworks for open-source APIs within an agile enviroment.  
 - **The API we will be using: https://openweathermap.org/current**
-- **The framework will be made using is JUnit and Jackson.**
-- **Scrum agile enviroment**
+- **The framework will be made using JUnit and Jackson.**
+- **Agile Framework: Scrum**
 
 ### Our Team
 Every member is a developer and a tester.
@@ -18,7 +18,7 @@ Every member is a developer and a tester.
 - **Alex Sikorski** - Development
 - **Jakub Matyjewicz** - Development
 - **Golam Choudhury** - Development
-- *Jack Ingham* - Development
+- **Jack Ingham** - Development
 - **Kurtis Hanson** - Development
 - **Dominic Cogan-Tucker** - Development
 
@@ -26,13 +26,14 @@ Every member is a developer and a tester.
 
 - JDK 11
 - Maven
+- Mockito
 - IntelliJ
 - JUnit 5
 - Jackson
 - Git
 
 ### Project Architecture
-- The program will **Service Object Model** to represent the various API requests.
+- The program will use **Service Object Model** to represent the various API requests.
    - DTO: Classes that represent the different requests.
    - ConnectionManager: A class which handles the connection to the live system and collects the response. 
    - Injector: A class responsible for injecting the payload into weather DTOs
@@ -63,7 +64,7 @@ Every member is a developer and a tester.
 4. Kanban accurately represnets our project state.
 5. Test cases exit for each feature.
 
-### Sprint 0
+### Sprint 0 
 #### The Product Backlog
 As a team, we had inspected the Open Weather Map API and assessed what possible things a tester would want to test.
 
@@ -72,35 +73,65 @@ Building on this, User Epics were constructed which were then broken down furthe
 Each User Story had its own user acceptance criteria and list of developer requirements to ensure that a certain standard is met
 before each story is considered a closed issue.
 
+The progress and structure of the project will be continuously updated throughout the Sprint.
 
-### Building the Project - First Stages
+#### Building the Project - First Stages
 - Created an Interface for each section of the API response (e.g., 'weather', 'wind', 'cloud')
 - Created Interfaces for the two distinctly different response cases (single city, list of multiple cities)
 - Created an interface for default methods which are common across all DTOs.
 
+### Sprint 1
+#### Requirements
+A tester will be able to easily choose which distinct endpoint to use for openweathermap api.
+
+The framework has the option of two DTOs, single city and multiple city. depending on which endpoint they decide to use. 
+
+A tester will not have to worry about the internal differences between the single and multiple city responses, such as 
+differences in the naming of keys. 
+
+### Epics
+#### Epic 1 - *As a product owner, I want to see some documentation of Sprints, so that I can see what work is done and how*
+#### Epic 2 - *As a tester, I want to see documentation of the framework, so that I can understand how to use it*
+#### Epic 3 - *As a tester, I want to use a framework to aid me with specific test cases*
+#### Epic 4 - *As a tester, I want to see DTOs for all types of API calls I can make so that I can view and test the data*
+
 
 ## Documentation
-
-
 ### Different Types of Responses
-The Open Weather Map API has two distinct cases for responses to API calls. These are: a single city response, and
-a multiple city response.
-
+The Open Weather Map API has two distinct cases for responses to API calls:
+- Single City Response
+- Multiple City Response
 ### Initiating the Connection
 - The ConnectionManager's **getConnection()** method provides the end-point, allowing the user to add
   parameters based on what exactly needs to be tested.
-- The end-points which can be passed into getConnection() are:
-    - BY_CITY_NAME, (city_name, state_code, country_code)
-        - Needs a minimum of city_name, not all parameters are required
-    - BY_CITY_ID, (city_id)
-    - BY_COORDS, (longitude, latitude)
-    - BY_ZIP, (zip_code, country_code)
-    - BY_BBOX, (bounded_box)
-    - BY_CIRCLE, (longitute, latitude, cnt)
+- The end-points and the corresponding parameters which can be passed into getConnection() are:
+    - **BY_CITY_NAME**, (city_name, state_code, country_code)
+        - *Requires a minimum of city_name, state_code and country_code are optional*
+    - **BY_CITY_ID**, (city_id)
+    - **BY_COORDS**, (longitude, latitude)
+    - **BY_ZIP**, (zip_code, country_code)
+    - **BY_BBOX**, (bounded_box)
+    - **BY_CIRCLE**, (longitute, latitude, cnt)
 
-- **InjectDTO()** takes a fully constructed URL and uses ObjectMapper() of the Jackson library to reads JSON to POJOs.
+| **API Endpoint** | **Type of Response** |         
+|--------------|----------------------|
+| BY_CITY_NAME | Single City          |
+| BY_CITY_ID   | Single City          |
+| BY_COORDS    | Single City          |
+| BY_ZIP       | Single City          |
+| BY_BBOX      | Multiple City        |
+| BY_CIRCLE    | Multiple City        |
 
-### Example Test
+
+| **Type of Response** | **DTO to Use**         |
+|----------------------|------------------------|
+| Single City          | *CityDTO.java*         |
+| Multiple City        | *MultipleCityDTO.java* |
+
+- **InjectDTO()** takes a fully constructed URL and uses ObjectMapper() of the Jackson library to read JSON as POJOs
+  and "inject" them into the DTOs.
+
+### Example Set-Up & Test
 ```java
 static CityDTO cityDTO;
 
@@ -116,6 +147,12 @@ void checkTheCloudCoverageIsBetween0And100() {
     System.out.println(cityDTO.getCloudDTO().getCloudCoverage());
 }
 ```
+
+***IMPORTANT*** - You will require an API key from [Open Weather Map](openweathermap.org/api) in order to make API calls. place this key in a file named 
+'application.properties' in the resources directory.
+
+Example of api-key in **application.properties**:
+*api.key = xxxxxxxxxxxxxxxxxxxx...*
 
 
 ### Dependencies
