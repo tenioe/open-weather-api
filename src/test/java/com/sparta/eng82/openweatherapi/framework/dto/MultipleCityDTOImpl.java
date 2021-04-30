@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
+import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.PrecipitationDTO;
 
 import java.util.ArrayList;
 
@@ -48,5 +49,17 @@ public class MultipleCityDTOImpl implements MultipleCityDTO {
     public boolean listOfCityContainsNullValue() {
         return cities.stream()
                 .anyMatch(this::isNull);
+    }
+
+    public boolean checkSnowIsPositiveOrNullForEveryCity() {
+        return cities.stream()
+                .map(CityDTO::getSnowDTO)
+                .allMatch(PrecipitationDTO::checkValuesArePositive);
+    }
+
+    public boolean checkRainIsPositiveOrNullForEveryCity() {
+        return cities.stream()
+                .map(CityDTO::getRainDTO)
+                .allMatch(PrecipitationDTO::checkValuesArePositive);
     }
 }
