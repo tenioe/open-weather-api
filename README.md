@@ -45,7 +45,7 @@ Every member is a developer and a tester.
 
 * Branches :
     *  The dev branch acted as our final increment stage version of the product.
-    *  Feature branches were features worked on whcih were to be merged into the dev branch.
+    *  Feature branches were features worked on which were to be merged into the dev branch.
         * Naming convention: ticket#/module-worked-on
             * t10/weatherdto
             * t10/weatherdto-impl
