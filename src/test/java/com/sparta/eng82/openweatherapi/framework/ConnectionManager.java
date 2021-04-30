@@ -33,6 +33,14 @@ public class ConnectionManager {
         return endPoint.buildEndPoint(apiKey, unit, language, params);
     }
 
+    public static EndPoint getConnection(EndPoint endPoint, Unit unit, String... params) {
+        return endPoint.buildEndPoint(apiKey, unit, Language.ENGLISH, params);
+    }
+
+    public static EndPoint getConnection(EndPoint endPoint, Language language, String... params) {
+        return endPoint.buildEndPoint(apiKey, Unit.STANDARD, language, params);
+    }
+
 
     public static HttpHeaders getStatusCode() {
         HttpClient httpClient = HttpClient.newHttpClient();
