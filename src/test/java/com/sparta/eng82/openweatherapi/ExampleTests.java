@@ -6,6 +6,10 @@ import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.SystemValuesDTO;
 import org.junit.jupiter.api.*;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.anyOf;
+import static org.hamcrest.Matchers.is;
+
 public class ExampleTests {
 
     static CityDTO cityDTOMemphis;
@@ -20,16 +24,25 @@ public class ExampleTests {
 
     @BeforeAll
     static void init() {
-        cityDTOMemphis = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.METRIC,"Memphis"));
-        cityDTONashville = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.STANDARD,"Nashville"));
+        cityDTOMemphis = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.METRIC, "Memphis"));
+        cityDTONashville = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.STANDARD, "Nashville"));
         cityDTOLondon = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Language.SPANISH, "London"));
 
-        multipleCityDTOBbox = Injector.injectDTO((ConnectionManager.getConnection(EndPoint.BY_BBOX, Unit.IMPERIAL, Language.POLISH,"12,32,15,37,10")));
+        multipleCityDTOBbox = Injector.injectDTO((ConnectionManager.getConnection(EndPoint.BY_BBOX, Unit.IMPERIAL, Language.POLISH, "12,32,15,37,10")));
         multipleCityDTOCircle1 = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CIRCLE, "5", "5", "5"));
         multipleCityDTOCircle2 = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CIRCLE, "64", "-16", "10"));
 
         systemValuesDTO = ((CityDTO) Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "london"))).getSystemValuesDTO();
 
+    }
+
+    @Nested
+    class HeaderTests {
+        @Test
+        @DisplayName("CheckHeaderAccessControlAllowMethods")
+        void checkHeaderAccessControlAllowMethods() {
+            assertThat(ConnectionManager.getStatusCode().allValues("Access-Control-Allow-Methods").toString(), anyOf(is("[GET, POST]"), is("[POST, GET]")));
+        }
     }
 
     @Nested
