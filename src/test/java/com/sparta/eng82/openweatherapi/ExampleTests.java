@@ -50,9 +50,7 @@ public class ExampleTests {
             @Test
             @DisplayName("Check multiple cities cloud coverages are between 0 and 100")
             void checkMultipleCitiesCloudCoveragesAreBetween0And100() {
-                for (CityDTO city : multipleCityDTOBbox.getCities()) {
-                    Assertions.assertTrue(city.getCloudDTO().isBetween0and100());
-                }
+                Assertions.assertTrue(multipleCityDTOBbox.checkCloudCoverageIsBetween0and100ForEveryCity());
             }
         }
     }
@@ -66,7 +64,6 @@ public class ExampleTests {
             @DisplayName("Check if Longitude is between -180 and 180")
             void checkIfLongitudeIsBetween180And180() {
                 Assertions.assertTrue(cityDTOMemphis.getCoordinatesDTO().isLongitudeBetweenNegative180and180());
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getCoordinatesDTO().isLongitudeBetweenNegative180and180());
             }
 
             @Test
@@ -82,13 +79,13 @@ public class ExampleTests {
             @Test
             @DisplayName("Check if Longitude is between -180 and 180")
             void checkIfLongitudeIsBetween180And180() {
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getCoordinatesDTO().isLongitudeBetweenNegative180and180());
+                Assertions.assertTrue(multipleCityDTOCircle1.checkLongitudeIsBetweenNegative180and180ForEveryCity());
             }
 
             @Test
             @DisplayName("Check if Latitude is between -90 and 90")
             void checkIfLatitudeIsBetween90And90() {
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getCoordinatesDTO().isLatitudeBetweenNegative90and90());
+                Assertions.assertTrue(multipleCityDTOCircle1.checkLatitudeIsBetweenNegative90and90ForEveryCity());
             }
         }
     }
@@ -125,19 +122,19 @@ public class ExampleTests {
             @Test
             @DisplayName("Check if max temperature is greater than min temperature")
             void checkIfMaxTemperatureIsGreaterThanMinTemperature() {
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getMainConditionsDTO().maxTempGreaterThanMinTemp());
+                Assertions.assertTrue(multipleCityDTOCircle1.checkMaxTempIsGreaterThanMinTempForEveryCity());
             }
 
             @Test
             @DisplayName("Check if humidity between 0 and 100")
             void checkIfHumidityBetween0And100() {
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getMainConditionsDTO().humidityBetween0and100());
+                Assertions.assertTrue(multipleCityDTOCircle1.checkHumidityIsBetween0and100ForEveryCity());
             }
 
             @Test
             @DisplayName("Check if all temperatures are greater than 0")
             void checkIfAllTemperaturesAreGreaterThan0() {
-                Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getMainConditionsDTO().tempGreaterThanZeroK());
+                Assertions.assertTrue(multipleCityDTOCircle1.checkTemperaturesAreGreaterThan0KForEveryCity());
             }
         }
     }
