@@ -1,8 +1,6 @@
 package com.sparta.eng82.openweatherapi;
 
-import com.sparta.eng82.openweatherapi.framework.ConnectionManager;
-import com.sparta.eng82.openweatherapi.framework.EndPoint;
-import com.sparta.eng82.openweatherapi.framework.Injector;
+import com.sparta.eng82.openweatherapi.framework.*;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.CityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.MultipleCityDTO;
 import com.sparta.eng82.openweatherapi.framework.interfaces.dto.component.SystemValuesDTO;
@@ -22,11 +20,11 @@ public class ExampleTests {
 
     @BeforeAll
     static void init() {
-        cityDTOMemphis = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Memphis"));
-        cityDTONashville = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "Nashville"));
-        cityDTOLondon = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, "London"));
+        cityDTOMemphis = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.METRIC,"Memphis"));
+        cityDTONashville = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Unit.STANDARD,"Nashville"));
+        cityDTOLondon = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CITY_NAME, Language.SPANISH, "London"));
 
-        multipleCityDTOBbox = Injector.injectDTO((ConnectionManager.getConnection(EndPoint.BY_BBOX, "12,32,15,37,10")));
+        multipleCityDTOBbox = Injector.injectDTO((ConnectionManager.getConnection(EndPoint.BY_BBOX, Unit.IMPERIAL, Language.POLISH,"12,32,15,37,10")));
         multipleCityDTOCircle1 = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CIRCLE, "5", "5", "5"));
         multipleCityDTOCircle2 = Injector.injectDTO(ConnectionManager.getConnection(EndPoint.BY_CIRCLE, "64", "-16", "10"));
 
@@ -43,7 +41,6 @@ public class ExampleTests {
             @DisplayName("Check the cloud coverage is between 0 and 100")
             void checkTheCloudCoverageIsBetween0And100() {
                 Assertions.assertTrue(cityDTOMemphis.getCloudDTO().isBetween0and100());
-                System.out.println(cityDTOMemphis.getCloudDTO().getCloudCoverage());
             }
         }
 
@@ -70,7 +67,6 @@ public class ExampleTests {
             void checkIfLongitudeIsBetween180And180() {
                 Assertions.assertTrue(cityDTOMemphis.getCoordinatesDTO().isLongitudeBetweenNegative180and180());
                 Assertions.assertTrue(multipleCityDTOCircle1.getCities().get(0).getCoordinatesDTO().isLongitudeBetweenNegative180and180());
-
             }
 
             @Test
@@ -149,49 +145,39 @@ public class ExampleTests {
     @Nested
     class PrecipitationDTOTests {
         @Test
-        @DisplayName("Check getters for a single city")
-        void checkGetters() {
-            System.out.println("Rain 1H: " + cityDTONashville.getRainDTO().getOneHourMillis());
-            System.out.println("Rain 3H: " + cityDTONashville.getRainDTO().getThreeHourMillis());
-            System.out.println("Snow 1H: " + cityDTONashville.getSnowDTO().getOneHourMillis());
-            System.out.println("Snow 3H: " + cityDTONashville.getSnowDTO().getThreeHourMillis());
+        @DisplayName("Test rain values returned are positive for a single city")
+        void testRainValuesReturnedArePositiveForASingleCity() {
+            Assertions.assertTrue(cityDTONashville.getRainDTO().checkValuesArePositive());
         }
 
         @Test
-        @DisplayName("Test returned values are positive for a single city")
-        void testReturnedValuesArePositive() {
-            Assertions.assertTrue(cityDTONashville.getRainDTO().checkValuesArePositive());
+        @DisplayName("Test snow values returned are positive for a single city")
+        void testSnowValuesReturnedArePositiveForASingleCity() {
             Assertions.assertTrue(cityDTONashville.getSnowDTO().checkValuesArePositive());
         }
 
         @Test
-        @DisplayName("Test getters function correctly in multi city queries")
-        void testGettersFunctionCorrectlyInMultiCityQueries() {
-            for (CityDTO currCity : multipleCityDTOCircle2.getCities()) {
-                System.out.println(currCity.getCityName());
-                System.out.println(currCity.getRainDTO().getOneHourMillis());
-                System.out.println(currCity.getRainDTO().getOneHourMillis());
-                System.out.println(currCity.getSnowDTO().getOneHourMillis());
-                System.out.println(currCity.getSnowDTO().getThreeHourMillis());
-            }
-
+        @DisplayName("Test all values are positive or null for rain")
+        void testAllValuesArePositiveOrNullForRain() {
+            Assertions.assertTrue(multipleCityDTOCircle2.checkRainIsPositiveOrNullForEveryCity());
         }
 
         @Test
-        @DisplayName("Test all values are positive or null")
-        void testAllValuesArePositiveOrNull() {
-            for (CityDTO currCity : multipleCityDTOCircle2.getCities()) {
-                Assertions.assertTrue(currCity.getRainDTO().checkValuesArePositive());
-                Assertions.assertTrue(currCity.getSnowDTO().checkValuesArePositive());
-            }
+        @DisplayName("Test all values are positive or null for snow")
+        void testAllValuesArePositiveOrNullForSnow() {
+            Assertions.assertTrue(multipleCityDTOCircle2.checkRainIsPositiveOrNullForEveryCity());
         }
 
         @Test
-        @DisplayName("Test 3 hour value is greater than 1 hour")
-        void test3HourValueIsGreaterThan1Hour() {
+        @DisplayName("Test 3 hour value is greater than 1 hour for rain")
+        void test3HourValueIsGreaterThan1HourForRain() {
             Assertions.assertTrue(cityDTONashville.getRainDTO().checkThreeHGreaterThanOneH());
-            Assertions.assertTrue(cityDTONashville.getSnowDTO().checkThreeHGreaterThanOneH());
+        }
 
+        @Test
+        @DisplayName("Test 3 hour value is greater than 1 hour for snow")
+        void test3HourValueIsGreaterThan1HourForSnow() {
+            Assertions.assertTrue(cityDTONashville.getSnowDTO().checkThreeHGreaterThanOneH());
 
         }
     }
